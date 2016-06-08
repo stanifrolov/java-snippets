@@ -1,15 +1,10 @@
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class TimeConversion {
 
   public static void main(String[] args) {
-    MyTests tests = new MyTests();
+    TimeConversionTest tests = new TimeConversionTest();
     tests.runTests();
   }
 
@@ -36,7 +31,7 @@ public class TimeConversion {
 
 }
 
-class MyTests {
+class TimeConversionTest {
 
   @Test
   public void runTests() {

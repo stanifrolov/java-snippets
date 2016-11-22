@@ -14,6 +14,11 @@ public class BubbleSort {
     System.out.println("check empty array " + Arrays.toString(arr2));
     bubbleSort(arr2);
     System.out.println(Arrays.toString(arr2));
+
+    int[] arr3 = {2};
+    System.out.println("check one element array " + Arrays.toString(arr3));
+    bubbleSort(arr3);
+    System.out.println(Arrays.toString(arr3));
   }
 
   private static void bubbleSort(int[] arr) {

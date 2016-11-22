@@ -8,7 +8,7 @@ public class TimeConversion {
     tests.runTests();
   }
 
-  public static String converseTime(String time) {
+  static String converseTime(String time) {
     String timeString = time.substring(0, 2);
     String restOfTimeString = time.substring(2, 8);
     String frameString = time.substring(8, 10);
@@ -34,7 +34,7 @@ public class TimeConversion {
 class TimeConversionTest {
 
   @Test
-  public void runTests() {
+  void runTests() {
     TimeConversion timeConverser = new TimeConversion();
     assertEquals("00:12:12", timeConverser.converseTime("12:12:12AM"));
     assertEquals("23:59:59", timeConverser.converseTime("11:59:59PM"));

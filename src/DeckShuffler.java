@@ -1,9 +1,13 @@
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Random;
 
 public class DeckShuffler {
 
   public static void main(String[] args) {
+    long startTime = System.currentTimeMillis();
+
     Hashtable<String, Integer> ht = createDeckCountHashtable();
 
     for (int i = 0; i < 10000000; i++) {
@@ -15,6 +19,10 @@ public class DeckShuffler {
     }
 
     printDeckCounts(ht);
+
+    long endTime   = System.currentTimeMillis();
+    long totalTime = endTime - startTime;
+    System.out.println(totalTime);
   }
 
   private static Hashtable<String, Integer> createDeckCountHashtable() {
@@ -31,6 +39,7 @@ public class DeckShuffler {
   private static int[] getNewShuffledDeck() {
     int[] deck = {1,2,3};
     deck = shuffle(deck);
+//    deck = createRandomPermutation(deck); // slower because many random generations needed, but perfect uniform
     return deck;
   }
 
@@ -63,6 +72,23 @@ public class DeckShuffler {
       deck[randomNum] = temp;
     }
     return deck;
+  }
+
+  private static int[] createRandomPermutation(int[] deck) {
+    List<Integer> list = new ArrayList<>();
+    for (int e : deck) {
+      list.add(e);
+    }
+
+    int[] shuffledDeck = new int[deck.length];
+    for (int i = 0; i < deck.length; i++) {
+      Random random = new Random();
+      int randomNum = random.nextInt(list.size());
+      shuffledDeck[i] = list.get(randomNum);
+      list.remove(list.get(randomNum));
+    }
+
+    return shuffledDeck;
   }
 
 }
